@@ -25,16 +25,6 @@ const router = createRouter({
       },
     },
     {
-      path: '/portfolio',
-      name: 'portfolio',
-      component: () => import('../views/PortfolioView.vue'),
-      meta: {
-        title: 'Portfolio | Lumicore Projects',
-        description:
-          'See how Lumicore has helped businesses grow with custom software solutions and creative digital strategies.',
-      },
-    },
-    {
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutView.vue'),

@@ -27,11 +27,6 @@ const navItems = ref([
     command: () => router.push('/services'),
   },
   {
-    label: 'Portfolio',
-    icon: 'pi pi-images',
-    command: () => router.push('/portfolio'),
-  },
-  {
     label: 'About',
     icon: 'pi pi-info-circle',
     command: () => router.push('/about'),
@@ -60,11 +55,6 @@ const servicesAnchors = [
   { icon: 'pi pi-send', href: '#cta', label: 'CTA' },
 ];
 
-const portfolioAnchors = [
-  { icon: 'pi pi-images', href: '#portfolio', label: 'Portfolio' },
-  { icon: 'pi pi-send', href: '#cta', label: 'CTA' },
-];
-
 const aboutAnchors = [
   { icon: 'pi pi-heart', href: '#values', label: 'Values' },
   { icon: 'pi pi-clock', href: '#timeline', label: 'Timeline' },
@@ -78,8 +68,6 @@ const anchors = computed(() => {
       return homeAnchors;
     case 'services':
       return servicesAnchors;
-    case 'portfolio':
-      return portfolioAnchors;
     case 'about':
       return aboutAnchors;
     case 'contact':

@@ -1,22 +1,30 @@
 <script setup>
-// Home page - Add your content here
+/**
+ * HomeView - Main landing page with all sections
+ * Composition of Hero, About, Services, CaseStudies, Testimonials, Contact
+ */
+import AboutSection from '../components/AboutSection.vue';
+import CaseStudiesSection from '../components/CaseStudiesSection.vue';
+import ContactSection from '../components/ContactSection.vue';
+import HeroSection from '../components/HeroSection.vue';
+import ServicesSection from '../components/ServicesSection.vue';
+import TestimonialsSection from '../components/TestimonialsSection.vue';
 </script>
 
 <template>
   <div class="home-view">
-    <!-- Hero section -->
-    <section id="hero">
-      <div class="container">
-        <h1>Home</h1>
-        <p>Add your home page content here</p>
-      </div>
-    </section>
+    <HeroSection />
+    <AboutSection />
+    <ServicesSection />
+    <CaseStudiesSection />
+    <TestimonialsSection />
+    <ContactSection />
   </div>
 </template>
 
 <style scoped>
 .home-view {
-  min-height: 100vh;
-  padding-top: var(--nav-height);
+  position: relative;
+  z-index: 1;
 }
 </style>

@@ -91,7 +91,7 @@ const scrollToSection = (id) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8rem 2rem 4rem;
+  padding: 2rem 2rem 4rem;
   overflow: hidden;
 }
 

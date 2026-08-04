@@ -31,11 +31,6 @@ import ContactSection from '../components/ContactSection.vue';
   z-index: 1;
 }
 
-.page-hero {
-  padding: 8rem 2rem 2rem;
-  text-align: center;
-}
-
 .page-label {
   display: inline-block;
   font-size: 0.85rem;

@@ -185,6 +185,11 @@ a:hover {
   object-fit: contain;
 }
 
+.page-hero {
+  padding: 2rem 2rem 2rem;
+  text-align: center;
+}
+
 .logo-footer {
   height: 32px;
   width: auto;

@@ -77,10 +77,6 @@ const anchors = computed(() => {
         <template #start>
           <div class="flex items-center gap-2 cursor-pointer" @click="router.push('/')">
             <img src="/logo.png" alt="Lumicore Labs Logo" class="logo-image" />
-            <span class="text-lg font-bold" style="color: var(--text-color)">
-              Lumicore
-              <span style="color: var(--accent-color)">Labs</span>
-            </span>
           </div>
         </template>
         <template #end>
@@ -214,6 +210,7 @@ const anchors = computed(() => {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: max-content;
 }
 
 .nav-cta:hover {

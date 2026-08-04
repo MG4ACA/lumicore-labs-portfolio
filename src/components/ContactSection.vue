@@ -13,18 +13,52 @@ const form = ref({
   name: '',
   email: '',
   company: '',
-  budget: '',
   message: '',
 });
 
-const budgetOptions = ['$5K - $15K', '$15K - $50K', '$50K - $100K', '$100K+'];
 
-const handleSubmit = () => {
-  // In production, this would send to API
+const handleSubmit = async () => {
+  // TODO: Replace with your actual Web3Forms access key from web3forms.com
+  const accessKey = 'YOUR_ACCESS_KEY_HERE';
+
+  if (!accessKey || accessKey === 'YOUR_ACCESS_KEY_HERE') {
+    alert('Please set your Web3Forms access key in ContactSection.vue');
+    return;
+  }
+
   isSubmitted.value = true;
-  setTimeout(() => {
+
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        access_key: accessKey,
+        name: form.value.name,
+        email: form.value.email,
+        company: form.value.company,
+        message: form.value.message,
+        subject: `New Inquiry from ${form.value.name}`,
+      }),
+    });
+
+    const result = await response.json();
+    if (result.success) {
+      setTimeout(() => {
+        isSubmitted.value = false;
+        form.value = { name: '', email: '', company: '', message: '' };
+      }, 4000);
+    } else {
+      throw new Error(result.message);
+    }
+  } catch (error) {
+    console.error('Error sending message:', error);
+    alert('Something went wrong. Please try again later.');
     isSubmitted.value = false;
-  }, 4000);
+  }
 };
 
 onMounted(() => {
@@ -76,10 +110,6 @@ onMounted(() => {
           <!-- Contact details -->
           <div class="contact-details">
             <div class="contact-item">
-              <i class="pi pi-envelope"></i>
-              <span>hello@lumicorelabs.com</span>
-            </div>
-            <div class="contact-item">
               <i class="pi pi-map-marker"></i>
               <span>Remote-first · Global Delivery</span>
             </div>
@@ -115,21 +145,6 @@ onMounted(() => {
               />
             </div>
 
-            <div class="form-group">
-              <label>Budget Range</label>
-              <div class="budget-options">
-                <button
-                  v-for="opt in budgetOptions"
-                  :key="opt"
-                  type="button"
-                  class="budget-btn"
-                  :class="{ active: form.budget === opt }"
-                  @click="form.budget = opt"
-                >
-                  {{ opt }}
-                </button>
-              </div>
-            </div>
 
             <div class="form-group">
               <label for="message">Tell us about your project</label>
@@ -349,35 +364,6 @@ onMounted(() => {
   box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15) !important;
 }
 
-/* Budget options */
-.budget-options {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
-}
-
-.budget-btn {
-  padding: 0.65rem 1rem;
-  border: 1px solid var(--surface-border);
-  border-radius: 12px;
-  background: transparent;
-  color: var(--text-secondary-color);
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.budget-btn:hover {
-  border-color: var(--accent-color);
-  color: var(--accent-color);
-}
-
-.budget-btn.active {
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(99, 102, 241, 0.15));
-  border-color: var(--accent-color);
-  color: var(--accent-color);
-}
 
 /* Submit button */
 .submit-btn {
@@ -431,9 +417,6 @@ onMounted(() => {
   }
   .contact-form-wrap {
     padding: 1.5rem;
-  }
-  .budget-options {
-    grid-template-columns: 1fr;
   }
 }
 </style>

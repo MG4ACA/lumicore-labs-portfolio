@@ -277,7 +277,6 @@ const scrollToSection = (id) => {
 }
 
 .cta-primary:hover {
-  transform: translateY(-2px);
   box-shadow: 0 8px 30px rgba(139, 92, 246, 0.45);
 }
 
@@ -310,7 +309,6 @@ const scrollToSection = (id) => {
 .cta-secondary:hover {
   border-color: var(--accent-color);
   color: var(--accent-color);
-  transform: translateY(-2px);
   box-shadow: 0 4px 20px rgba(139, 92, 246, 0.15);
 }
 

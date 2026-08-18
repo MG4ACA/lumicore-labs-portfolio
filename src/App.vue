@@ -159,6 +159,7 @@ const anchors = computed(() => {
           <!-- Connect -->
           <div>
             <h3 class="text-base font-bold mb-4">Connect</h3>
+            <!-- 
             <div class="flex gap-3 mb-4">
               <a href="#" class="footer-social" aria-label="Twitter">
                 <i class="pi pi-twitter"></i>
@@ -173,7 +174,10 @@ const anchors = computed(() => {
                 <i class="pi pi-instagram"></i>
               </a>
             </div>
-            <p class="opacity-60 text-sm">hello@lumicorelabs.com</p>
+            -->
+            <p class="opacity-60 text-sm">
+              <a href="mailto:dev.mg4@gmail.com" class="hover:text-[var(--accent-color)] transition-colors">dev.mg4@gmail.com</a>
+            </p>
             <p class="mt-4 opacity-50 text-xs">© 2026 Lumicore Labs. All rights reserved.</p>
           </div>
         </div>

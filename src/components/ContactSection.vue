@@ -19,7 +19,7 @@ const form = ref({
 
 const handleSubmit = async () => {
   // TODO: Replace with your actual Web3Forms access key from web3forms.com
-  const accessKey = 'YOUR_ACCESS_KEY_HERE';
+  const accessKey = '3efe8ce9-c423-49ee-8f39-1d7113534e2d';
 
   if (!accessKey || accessKey === 'YOUR_ACCESS_KEY_HERE') {
     alert('Please set your Web3Forms access key in ContactSection.vue');
@@ -101,7 +101,8 @@ onMounted(() => {
               <h4>Prefer a live conversation?</h4>
               <p>Book a free 30-minute discovery call</p>
             </div>
-            <a href="#" class="calendly-btn">
+            <!-- Replace the href below with your actual Calendly booking link -->
+            <a href="https://calendly.com/dev-mg4" target="_blank" rel="noopener noreferrer" class="calendly-btn">
               <span>Schedule Call</span>
               <i class="pi pi-arrow-right"></i>
             </a>
